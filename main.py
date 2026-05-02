@@ -2,6 +2,7 @@ import sys, getopt
 import time
 import threading
 import socket
+from external import Reader
 
 
 PFLAG = "PFLAG"
@@ -103,7 +104,8 @@ def main():
     if isEnd:
         pingStop((hostname, port), STOP)
         exit(0)
-
+    
+    f = Reader()
     ADDRESS = (hostname, port)
 
     """
@@ -120,16 +122,15 @@ def main():
         thread.join()
         
     else:
-
         """
-        Currently takes input from terminal, reading from file to be implemented (see extern.py)
+        Reads from file for data coming through channels (to be implemented)
         """
 
         print("Pipe detected on " + hostname + ":" + str(port) + "\n")
         time.sleep(2)
         sin = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sin.connect(ADDRESS)
-        data = input("Msg:")
+        data = f.read(BUFF)
         sin.sendall(data.encode())
         data = sin.recv(BUFF)
 
