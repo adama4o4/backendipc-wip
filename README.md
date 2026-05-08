@@ -1,7 +1,12 @@
 # backendipc-wip
 DISCLAIMER: Project was created for educational purposes only, and has not been audited for security. Use at your own risk.
 
-Requires: Python 3.8+
+Requires: 
+- Python 3.8+
+- Numpy 2.0+
+
+Install dependencies with:
+pip install -r requirements.txt
 
 Prototype of a simple cross-platform IPC tool, to create an enduring socket (or "pipe") with multiple channels through
 which processes may be able to send data. Currently functions as a dual client/server implementation, built using only the python standard library.
@@ -25,4 +30,9 @@ If a server is detected, the user is prompted for a message that will be display
 
 To close the server, the main.py script is run with the --stop-server flag to send the stop flag to the server.
 
+This project uses the following third party software:
+
+- NumPy - BSD 3-Clause license
+
 This project is licensed under the MIT license.
+
